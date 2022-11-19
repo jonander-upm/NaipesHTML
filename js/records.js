@@ -1,10 +1,8 @@
-window.onload = function() {
-    retrieveData();
-}
-
 var xhr;
 
-function retrieveData() {
+init();
+
+function init() {
     xhr = new XMLHttpRequest();
     xhr.open("GET", "http://fenw.etsisi.upm.es:10000/records", true);
     xhr.responseType = "json";

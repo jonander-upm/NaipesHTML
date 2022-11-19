@@ -1,8 +1,6 @@
-window.onload = function() {
-    init();
-}
-
 var error = false;
+
+init();
 
 function init() {
     let formElement = document.querySelector("form");

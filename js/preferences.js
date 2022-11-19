@@ -1,6 +1,4 @@
-window.onload = function () {
-    init();
-}
+init();
 
 function init() {
     let formElement = document.querySelector("form");
@@ -10,6 +8,6 @@ function init() {
         let cardNumElement = document.getElementById("numCartas");
         localStorage.setItem("duracionJuego", durationElement.value);
         localStorage.setItem("numCartas", cardNumElement.value);
-        document.location.href = "game.html";
+        replaceArticle("game");
     });
 }

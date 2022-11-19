@@ -20,9 +20,12 @@ function Card(type, image) {
     this["reverse"] = "img/reverso.jpg";
 }
 
-window.onload = new function() {
+init();
+document.getElementById("reiniciarBtn").addEventListener("click", function () {
     init();
-}
+    let endModalElement = document.getElementById("modalFinal");
+    $(endModalElement).modal("hide");
+});
 
 function init() {
     points = 0;
@@ -36,12 +39,6 @@ function init() {
     createCards();
     paintCards();
     initTimer();
-    let restartBtn = document.getElementById("reiniciarBtn");
-    restartBtn.addEventListener("click", function () {
-        init();
-        let endModalElement = document.getElementById("modalFinal");
-        $(endModalElement).modal("hide");
-    });
 }
 
 function initTimer() {
@@ -126,7 +123,7 @@ function resetSelectedCards(match) {
     let secondCard = cards[secondSelectedCard.getAttribute("data-index")];
     if(!match) {
         firstSelectedCard.src = firstCard.reverse;
-        secondSelectedCard.src = firstCard.reverse;
+        secondSelectedCard.src = secondCard.reverse;
     } else {
         firstSelectedCard.removeEventListener("click", handleCardClick);
         secondSelectedCard.removeEventListener("click", handleCardClick);

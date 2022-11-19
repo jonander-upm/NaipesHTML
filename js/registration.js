@@ -1,8 +1,6 @@
-window.onload = function() {
-    init();
-}
-
 var errorMsg;
+
+init();
 
 function init() {
     let formElement = document.querySelector("form");
@@ -16,7 +14,7 @@ function init() {
             errorMsg.classList.add("alert-danger");
             errorMsg.innerHTML = "Las contraseñas deben ser iguales..."
             formElement.appendChild(errorMsg);
-        } else {
+        } else if(password === passwordRpt) {
             if(errorMsg !== undefined) {
                 formElement.removeChild(errorMsg);
             }
