@@ -1,0 +1,20 @@
+#info {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+#tablero {
+    display: grid;
+    grid-template-rows: repeat(4, 1fr);
+    grid-template-columns: repeat(8, 1fr);
+    grid-gap: 20px;
+}
+
+.game_card {
+    margin: auto;
+    width: auto;
+    max-height: 100%;
+    filter: drop-shadow(2px 2px 2px var(--item-shadow));
+    border-radius: 5px;
+}

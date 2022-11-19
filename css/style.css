@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+:root {
+    --bg-body: rgb(116, 194, 227);
+    --bg-body-inner: rgb(218, 234, 239);
+    --item-shadow: rgba(86, 102, 178, 0.4);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    font-family: Lato, serif;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    background-color: var(--bg-body);
+}
+
+header {
+    height: 50px;
+    margin: 5px;
+}
+
+article {
+    height: calc(90% - 50px);
+    display: flex;
+    margin: 35px;
+}
+
+#logoUPM {
+    max-height: 50px;
+    width: auto;
+}
+
+nav>ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: flex-start;
+}
+
+#opcionesUsuario {
+    justify-content: flex-end;
+}
+
+nav>ul>li {
+    padding: 20px;
+    margin-right: 20px;
+}
+
+nav>ul>li>a {
+    text-decoration: none;
+    font-size: 20px;
+    color: whitesmoke;
+}
+
+label {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    align-items: center;
+    margin-top: 40px;
+}
+
+label>span {
+    color: whitesmoke;
+}
+
+input, select {
+    border: none;
+    border-radius: 10px;
+    background-color: var(--bg-body-inner);
+    box-shadow: inset 0 0 4px 0 var(--item-shadow);
+    text-align: center;
+    max-width: 200px;
+    max-height: 25px;
+}
+
+.inner-card {
+    padding: 20px;
+    background-color: var(--bg-body-inner);
+    border-radius: 15px;
+    box-shadow: inset 0 0 10px 0 var(--item-shadow);
+}
+
+button {
+    border: none;
+    color: whitesmoke;
+    background-color: var(--bg-body);
+    padding: 10px 15px 10px 15px;
+    border-radius: 5px;
+}
+
+.form-card {
+    margin: auto;
+    width: 600px;
+    color: var(--bg-body);
+}
+
+.form-card>form {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 5px;
+    margin-left: 20px;
+    text-align: start;
+}
+
+.form-card>form>button {
+    width: 100px;
+    margin: 50px auto 0 auto;
+}
+
+.form-card>form>label>span {
+    color: var(--bg-body);
+}
+
+input, select {
+    background-color: whitesmoke;
+}
