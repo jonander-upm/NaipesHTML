@@ -1,0 +1,28 @@
+:root {
+    --alternate-row-color: rgb(166, 206, 232);
+}
+
+#records {
+    margin: auto;
+    width: 600px;
+    color: var(--bg-body);
+}
+
+#tablaRecords {
+    width: 90%;
+    margin: 40px 20px 20px 20px;
+}
+
+#tablaRecords>tr>td {
+    padding: 10px;
+    align-items: center;
+}
+
+#tablaRecords>tr{
+    border-top: 1px solid var(--bg-body);
+}
+
+#tablaRecords>tr:nth-child(odd) {
+    color: whitesmoke;
+    background-color: var(--alternate-row-color);
+}

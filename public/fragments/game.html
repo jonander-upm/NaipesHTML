@@ -1,0 +1,35 @@
+
+<div class="row container-fluid">
+    <div id="info" class="col-4">
+        <label>
+            <span>Tiempo</span>
+            <input type="text" id="marcadorTiempo" readonly/>
+        </label>
+        <label>
+            <span>Puntos</span>
+            <input type="text" id="marcadorPuntos" value="0" readonly/>
+        </label>
+    </div>
+    <div id="tablero" class="col-8 inner-card">
+    </div>
+</div>
+<div class="modal fade" id="modalFinal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalLabel">Fin del juego</h5>
+                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Puntuación: <span id="modalPuntuacion"></span> puntos</p>
+                <p>Tiempo: <span id="modalTiempo"></span> segundos</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="reiniciarBtn">Volver a jugar</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
