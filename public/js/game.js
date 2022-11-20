@@ -14,6 +14,8 @@ var secondSelectedCard;
 
 var pid;
 
+var noTimeLimit = false;
+
 function Card(type, image) {
     this["type"] = type;
     this["image"] = image;
@@ -30,15 +32,20 @@ document.getElementById("reiniciarBtn").addEventListener("click", function () {
 function init() {
     points = 0;
     gameDuration = localStorage.getItem("duracionJuego") != null
-        ? localStorage.getItem("duracionJuego")
+        ? parseInt(localStorage.getItem("duracionJuego"))
         : 60;
+    if(gameDuration === -1) {
+        noTimeLimit = true;
+    }
     cardNum = localStorage.getItem("numCartas")
-        ? localStorage.getItem("numCartas")
+        ? parseInt(localStorage.getItem("numCartas"))
         : 20;
     cardsLeft = cardNum;
     createCards();
     paintCards();
-    initTimer();
+    if(!noTimeLimit) {
+        initTimer();
+    }
 }
 
 function initTimer() {
@@ -50,6 +57,7 @@ function initTimer() {
         if(time === 0) {
             clearInterval(pid);
             pid = undefined;
+            handleGameEnd();
         }
     }, 1000);
 }
@@ -81,7 +89,7 @@ function paintCards() {
 }
 
 function handleCardClick(event) {
-    if(pid !== undefined) {
+    if(noTimeLimit || pid !== undefined) {
         selectCard(event);
     }
 }
@@ -136,8 +144,6 @@ function handleGameEnd() {
     let endModalElement = document.getElementById("modalFinal");
     let timeModalElement = document.getElementById("modalTiempo");
     let pointModalElem = document.getElementById("modalPuntuacion");
-    clearInterval(pid);
-    pid = undefined;
     if(cardNum === 26) {
         points += 25;
     } else if(cardNum === 32) {
@@ -160,7 +166,13 @@ function handleGameEnd() {
         default:
             break;
     }
-    timeModalElement.innerHTML = (gameDuration - time).toString();
+    if(!noTimeLimit) {
+        clearInterval(pid);
+        pid = undefined;
+        timeModalElement.innerHTML = (gameDuration - time).toString();
+    } else {
+        timeModalElement.innerHTML = "-";
+    }
     pointModalElem.innerHTML = points;
     $(endModalElement).modal("show");
 }
